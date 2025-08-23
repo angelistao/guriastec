@@ -1,0 +1,39 @@
+Informações gerais:
+
+Variáveis de entrada no balanço hídrico:
+-série histórica de chuva (estações pluviométricas)
+obs: os valores de área, demandas e volumes dos reservatórios foram adotados para as simulações em rotina de balanço hídrico conforme valores usuais esperados:
+-áreas: 50; 100; 150; 200; 300; 400; 500; 1000 m²
+-demandas: 100; 200; 300; 400; 500; 600; 700; 800; 900; 1000 L/s
+-volumes de reservatórios: 500; 1000; 2000; 3000; 4000; 5000; 6000; 7000; 8000; 9000; 10000; 20000; 30000; 40000; 50000 L
+
+PARA CADA ESTAÇÃO PLUVIOMÉTRICA/CIDADE SIMULARAM-SE CENÁRIOS CONSIDERANDO, POR EXEMPLO:
+CENÁRIO 1: Área de telhado de 50 m² em uma demanda de consumo de água da chuva na residência/empreendimento de 100 L/dia utilizando um reservatório de 500L.
+CENÁRIO 2: Área de telhado de 50 m² em uma demanda de consumo de água da chuva na residência/empreendimento de 100 L/dia utilizando um reservatório de 1000L.
+E ASSIM POR DIANTE, FAZENDO TODAS AS COMBINAÇÕES ENTRE ÁREA/DEMANDA/VOLUME POSSÍVEIS PARA CADA SÉRIE HISTÓRICA DE CHUVA.
+COMO RESULTADO OBTIDO DA SIMULAÇÃO TEM-SE A EFICIENCIA GLOBAL DO SISTEMA.
+
+O OBJETIVO SERIA A PARTIR DESTES RESULTADOS CONSEGUIR DEFINIR A COMBINAÇÃO IDEAL DADO QUE UM USUÁRIO TERIA AS SEGUINTES INFORMAÇÕES: O TAMANHO DO SEU TELHADO (ÁREA), A DEMANDA QUE DESEJA TER (DEMANDA) E A EFICIENCIA DESEJADA. 
+SERIA POSSÍVEL DEFINIR UMA EQUAÇÃO?
+SERIA POSSÍVEL DEFINIR REGIÕES SIMILARES? (pq não tem-se dados de séries históricas para todos os locais do estado, mas definidno regiões, pode-se expandir o uso)
+EQUAÇÕES REGIONAIS?
+
+
+Pastas:
+
+"Compilado":
+-arquivo que contém todas as informações de eficiência global para todas as combinações de área, demanda e volume de todas as cidades (estações pluviométricas) em um único arquivo.
+
+- COLUNA 1 - ["nº"] identificação da estação pluciométrica/cidade
+- COLUNA 2 - ["Cidade"] nome da cidade 
+- COLUNA 3 - ["Demanda"]
+- COLUNA 4 - ["Area"]
+- COLUNA 5 - ["Volume"]
+- COLUNA 6 - ["EficienciaGlobal"]
+ 
+"Estações":
+-arquivo txt com todos os nomes das cidades analisadas.
+
+
+"Dados pluviométricos":
+-arquivo txt com todos os dados de dia, mês, ano e precipitação de cada uma das cidades analisadas. 
