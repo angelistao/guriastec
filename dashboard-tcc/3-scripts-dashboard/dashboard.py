@@ -19,7 +19,7 @@ st.markdown("Dashboard baseado nos dados de simulação do TCC de Laisa Cancian.
 caminho_dados = os.path.join('..', '4-dados-resultados', 'Resultado_limpo.csv')
 
 try:
-    df = pd.read_csv(caminho_dados)
+    df = pd.read_csv('dashboard-tcc/4-dados-resultados/Resultado_limpo.csv')
 except FileNotFoundError:
     st.error(f"ARQUIVO NÃO ENCONTRADO: '{caminho_dados}'")
     st.error("Verifique se a sua estrutura de pastas está correta e se o arquivo 'Resultado_limpo.csv' existe.")
