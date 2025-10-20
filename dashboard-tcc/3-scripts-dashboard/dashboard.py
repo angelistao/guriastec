@@ -3,19 +3,19 @@ import pandas as pd
 import plotly.express as px
 import os
 
-# --- Configuração da Página ---
+# configurando a página
 st.set_page_config(
     page_title="Dashboard de Análise de Água da Chuva",
     page_icon="💧",
     layout="wide"
 )
 
-# --- Título do Dashboard ---
+# título do dashboard
 st.title("💧 Análise Interativa de Sistemas de Aproveitamento de Água da Chuva")
 st.markdown("Dashboard baseado nos dados de simulação do TCC de Laisa Cancian.")
 
-# --- Carregamento dos Dados ---
-# Constrói o caminho relativo para o arquivo de dados na pasta de resultados
+
+# caminho relativo para o arquivo de dados na pasta de resultados
 caminho_dados = os.path.join('..', '4-dados-resultados', 'Resultado_limpo.csv')
 
 try:
@@ -25,22 +25,22 @@ except FileNotFoundError:
     st.error("Verifique se a sua estrutura de pastas está correta e se o arquivo 'Resultado_limpo.csv' existe.")
     st.stop() # Interrompe a execução se o arquivo não for encontrado
 
-# --- Barra Lateral com Filtros ---
-st.sidebar.header("Filtros Interativos")
+# filtro na barra lateral
+st.sidebar.header("Filtros")
 
-# Filtro de Cidade
+# '' cidade
 lista_cidades = sorted(df['Cidade'].unique().tolist())
 cidade_selecionada = st.sidebar.selectbox("Selecione a Cidade:", options=lista_cidades)
 
-# Filtro de Demanda
+# '' filtro de Demanda
 lista_demandas = sorted(df['Demanda_L_dia'].unique().astype(int).tolist())
 demanda_selecionada = st.sidebar.radio("Selecione a Demanda (L/dia):", options=lista_demandas, horizontal=True)
 
-# Filtro de Área de Captação
+# '' filtro de Área de Captação
 lista_areas = sorted(df['Area_Captacao_m2'].unique().astype(int).tolist())
 areas_selecionadas = st.sidebar.multiselect("Selecione as Áreas (m²):", options=lista_areas, default=lista_areas)
 
-# --- Filtragem e Exibição ---
+# filtragem e exibição
 df_filtrado = df[
     (df['Cidade'] == cidade_selecionada) &
     (df['Demanda_L_dia'] == demanda_selecionada) &
